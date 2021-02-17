@@ -1,0 +1,68 @@
+\documentclass[oneside,12pt,a4paper]{report}
+
+\usepackage{AerodesignTemplate}
+\selectlanguage{brazil}
+
+% INFORMACAO DA EQUIPE
+\instituicao{Universidade do Aerodesign}
+\competicao{SAE BRASIL AERODESIGN 2021}
+\equipe{Equipe Aerodesign}
+\disciplina{Aerodinâmica}
+\orientador{Santos-Dummont}
+
+\alunos{Nome do Aluno 1 \\ Nome do Aluno 2 \\ Nome do Aluno 3 \\ Nome do Aluno 4 \\ Nome do Aluno 5 \\ Nome do Aluno 6 \\ Nome do Aluno 7 \\ Nome do Aluno 8 \\ Nome do Aluno 9 \\ Nome do Aluno 10 \\ Nome do Aluno 11 \\ Nome do Aluno 12 \\ Nome do Aluno 13 \\ Nome do Aluno 14 \\ Nome do Aluno 15 \\}
+
+\numeroEquipe{000}
+\email{aerodesign@universidade.com.br}
+\logoequipe{./logos/logo_ctec_aero.png}
+
+% INICIO DO DOCUMENTO
+\begin{document}
+\pagestyle{IHA-fancy-plain}
+\maketitlepage
+
+% INDEX AND LISTS
+\tableofcontents
+
+%\listoftables
+%\addcontentsline{toc}{chapter}{Lista de Tabelas}
+
+%\listoffigures
+%\addcontentsline{toc}{chapter}{Lista de Figuras}
+
+% LISTA DE SIMBOLOS
+%\include{sec/simbolos}
+%\clearpage
+
+
+% LISTA DE INPUTS
+\include{sec/inputs}
+
+
+% TEXTO TECNICO
+\include{sec/documento}
+
+% O texto tecnico pode ser divido em varios arquivos .tex para facilitar a organizacao e trabalho colaborativo
+% Exemplo:
+% \include{sec/introducao}
+% \include{sec/teoria}
+% \include{sec/metodologia}
+% \include{sec/resultados}
+% \include{sec/conclusao}
+
+
+% LISTA DE OUTPUTS
+\include{sec/outputs}
+
+
+% BIBLIOGRAFIA
+\hyphenpenalty=10000 % turn off hyphenization
+\bibliography{referencias}
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+
+% APENDICE
+% \include{sec/apendice}
+
+
+
+\end{document}

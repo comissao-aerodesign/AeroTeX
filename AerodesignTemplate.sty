@@ -1,0 +1,173 @@
+% PACOTES LATEX
+\usepackage[brazil]{babel}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{layout}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{cite}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[final]{pdfpages}
+\usepackage[colorlinks,urlcolor=blue,filecolor=black,citecolor=black,linkcolor=black]{hyperref}
+
+
+\usepackage{lipsum} 
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+%===================================================================
+% DEFINICOES DOS NOMES
+\makeatletter
+\newcommand{\instituicao}[1]{\def\instituicao {#1}}
+\newcommand{\competicao}[1]{\def\competicao {#1}}
+\newcommand{\equipe}[1]{\def\equipe {#1}}
+\newcommand{\disciplina}[1]{\def\disciplina {#1}}
+\newcommand{\alunos}[1]{\def\alunos {#1}}
+\newcommand{\numeroEquipe}[1]{\def\numeroEquipe {#1}}
+\newcommand{\email}[1]{\def\email {#1}}
+\newcommand{\orientador}[1]{\def\orientador {#1}}
+\newcommand{\logoequipe}[1]{\def\logoequipe {#1}}
+
+%===================================================================
+% PAGINA INICIAL
+\newcommand{\maketitlepage}{
+	\begin{titlepage}
+		\centering
+        \vfill
+        \includegraphics[width=0.5\textwidth]{\logoequipe}\\[1.5 cm]	
+        \textsc{\LARGE \competicao}\\[1.0 cm]
+        \textsc{\LARGE \instituicao}\\[1.0 cm]
+        \vfill
+	    \rule{\linewidth}{0.2 mm} \\[0.4 cm]
+        { \LARGE \bfseries \disciplina \\~\\
+        \Large N° \numeroEquipe {} - \equipe}\\
+	    \rule{\linewidth}{0.2 mm} \\
+        
+        \vfill
+        
+        \begin{multicols}{2}
+        \Large \alunos
+        \end{multicols} 
+        \vfill
+        
+        {\large Orientador: \orientador} \\[0.2 cm]
+        {\large \email} \\
+        
+        \vfill
+        
+	    {\large \today} \\   
+		\clearpage
+	\end{titlepage}
+}
+
+
+%===================================================================
+% ESTILO DAS PAGINAS
+
+\fancypagestyle{IHA-fancy-plain}{
+    \fancyhf{}
+\fancyhead[L]{
+    \begin{tabularx}{\textwidth}{l R}
+       \raisebox{1.0\height}{ \nouppercase{\leftmark} }  & \hspace{-0.5cm} \includegraphics[width=30mm]{\logoequipe} \\ \hline
+	\end{tabularx}
+}
+\fancyfoot[L]{
+		\begin{tabularx}{\textwidth}{L R}
+			\hline \\ [-1.5ex]
+			\begin{tabular}{l l@{}}
+				\small{ Equipe: } & \small{ \numeroEquipe\ - \equipe} \\
+				\small{ Instituição: } & \small{ \instituicao }
+			\end{tabular} &
+			\begin{tabular}{r r@{}}
+				\small{ Página: } & \small{ \thepage\space de \pageref{LastPage}}
+			\end{tabular}
+		\end{tabularx}
+	}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+\fancyhead[L]{
+    \begin{tabularx}{\textwidth}{l R}
+       \raisebox{1.0\height}{ \nouppercase{\leftmark} }  & \hspace{-0.5cm} \includegraphics[width=30mm]{\logoequipe} \\ \hline
+	\end{tabularx}
+}
+\fancyfoot[L]{
+		\begin{tabularx}{\textwidth}{L R}
+			\hline \\ [-1.5ex]
+			\begin{tabular}{l l@{}}
+				\small{ Equipe: } & \small{ \numeroEquipe\ - \equipe} \\
+				\small{ Instituição: } & \small{ \instituicao }
+			\end{tabular} &
+			\begin{tabular}{r r@{}}
+				\small{ Página: } & \small{ \thepage\space de \pageref{LastPage}}
+			\end{tabular}
+		\end{tabularx}
+	}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+
+\setlength{\textheight}{680pt}
+\setlength{\headheight}{25mm}
+\setlength{\parindent}{4em}
+\setlength{\headsep}{15pt}
+\setlength{\topskip}{30pt}
+\setlength{\footskip}{30pt}
+
+%===================================================================
+% DEFINE ESTILO DO CAPITULO
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+	{\setlength{\parindent}{4em} \raggedright \normalfont
+		\bfseries\LARGE \thechapter~#1 \par \nobreak \vspace{1cm}
+	}
+}
+\renewcommand{\@makeschapterhead}[1]{%
+	\vspace*{0pt}%
+	{\setlength{\parindent}{4em} \raggedright \normalfont
+	    \bfseries\Large #1 \par \nobreak \vspace{1cm}
+	}
+}
+\makeatother
+
+%===================================================================
+% CODIGOS
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    %emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+%===================================================================
+% BIBLIOGRAFIA
+\bibliographystyle{ieeetr}
+
+
